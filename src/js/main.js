@@ -6,12 +6,17 @@ import showinfo from './components/showInfo';
 window.addEventListener("DOMContentLoaded", () => {
     'use strict';
 
-    const _present = loadData();
-    const _quitting = loadData();
+    loadData('https://brightsdays.github.io/vista-test/presentList.json')
+        .then(_present => {
+            loadList(_present, 'present');
+            showinfo(_present, 'present');
+        });
 
-    loadList(_present, 'present');
-    loadList(_quitting, 'quit');
-    showinfo(_present, 'present');
-    showinfo(_quitting, 'quit');
+    loadData('https://brightsdays.github.io/vista-test/quittingList.json')
+        .then(_quitting => {
+            loadList(_quitting, 'quit');
+            showinfo(_quitting, 'quit');
+        });
+
     showlist();
 });
