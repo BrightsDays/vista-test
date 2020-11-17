@@ -52,13 +52,12 @@ table
         height: 3px
         background-color: #3299cc
 
-
 .info
     display: inline-block
     margin-right: 20px
     margin-bottom: 20px
     border: 1px solid #3299cc
-    width: clamp(320px, 800px, 48%)
+    width: clamp(300px, 800px, 48%)
     box-shadow: 0 0 3px #3f3e3e
     vertical-align: top
 
@@ -82,7 +81,7 @@ table
 .list
     display: inline-block
     border: 1px solid #eeeeee
-    width: clamp(320px, 800px, 48%)
+    width: clamp(300px, 800px, 48%)
     box-shadow: 0 0 3px #3f3e3e
     vertical-align: top
 
@@ -105,8 +104,28 @@ table
 
     .list__body
         background-color: #fff
-        min-height: 800px
         overflow: hidden
         overflow-y: scroll
         height: 800px
 
+@media screen and ( max-width: 860px)
+    .info,.list
+        display: block
+        min-width: 100%
+        margin-right: 0
+    
+    .info 
+        .info__body
+            min-height: 100px
+
+    .list
+        .list__header
+            ul
+                li
+                    font-size: 12px
+
+        .list__body
+            height: 600px
+
+    .list__nav-item_active::after
+        bottom: -17px
