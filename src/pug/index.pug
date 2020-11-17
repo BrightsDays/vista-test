@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Patient's list
+        link(rel="stylesheet", href="style.css")
+        script(src="script.js")
+
+    body
+        .info
+            .info__header
+                h1 Информация о пациенте
+
+            .info__body
+                p ФИО 
+                    span.name
+                p Возраст 
+                    span.age
+                p Диагноз 
+                    span.diagnosis
+
+        .list
+            .list__header
+                ul.list__nav
+                    li.list__nav-item.list__nav-item_active Присутствуют
+                        span.presentcount (0)
+                    li.list__nav-item Выбывшие
+                        span.quitcount (0)
+
+            .list__body
+                .list__item.presentlist
+                    table
+                        thead
+                        tbody
+                            tr
+                                td.nib №ИБ
+                                td.fio ФИО
+                                td.wrd Палата
+
+                .list__item.quitlist
+                    table
+                        thead
+                        tbody
+                            tr
+                                td.nib №ИБ
+                                td.fio ФИО
+                                td.wrd Палата
