@@ -95,9 +95,12 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const loadData = data => {
-  return data;
-};
+async function loadData(data) {
+  //const fetch = require('node-fetch');
+  let response = await fetch(data);
+  let answer = await response.json();
+  return answer;
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (loadData);
 
@@ -219,14 +222,14 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener("DOMContentLoaded", () => {
   'use strict';
 
-  const _present = Object(_components_loadData__WEBPACK_IMPORTED_MODULE_0__["default"])();
-
-  const _quitting = Object(_components_loadData__WEBPACK_IMPORTED_MODULE_0__["default"])();
-
-  Object(_components_loadList__WEBPACK_IMPORTED_MODULE_1__["default"])(_present, 'present');
-  Object(_components_loadList__WEBPACK_IMPORTED_MODULE_1__["default"])(_quitting, 'quit');
-  Object(_components_showInfo__WEBPACK_IMPORTED_MODULE_3__["default"])(_present, 'present');
-  Object(_components_showInfo__WEBPACK_IMPORTED_MODULE_3__["default"])(_quitting, 'quit');
+  Object(_components_loadData__WEBPACK_IMPORTED_MODULE_0__["default"])('https://brightsdays.github.io/vista-test/presentList.json').then(_present => {
+    Object(_components_loadList__WEBPACK_IMPORTED_MODULE_1__["default"])(_present, 'present');
+    Object(_components_showInfo__WEBPACK_IMPORTED_MODULE_3__["default"])(_present, 'present');
+  });
+  Object(_components_loadData__WEBPACK_IMPORTED_MODULE_0__["default"])('https://brightsdays.github.io/vista-test/quittingList.json').then(_quitting => {
+    Object(_components_loadList__WEBPACK_IMPORTED_MODULE_1__["default"])(_quitting, 'quit');
+    Object(_components_showInfo__WEBPACK_IMPORTED_MODULE_3__["default"])(_quitting, 'quit');
+  });
   Object(_components_showList__WEBPACK_IMPORTED_MODULE_2__["default"])();
 });
 
